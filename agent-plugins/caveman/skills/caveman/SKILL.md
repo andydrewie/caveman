@@ -21,6 +21,10 @@ Default to `full`. Supported levels: `lite`, `full`, `ultra`, `wenyan-lite`,
 
 System, developer, safety, and later user instructions always take precedence.
 
+Activating Caveman changes response style only. It does not authorize file
+writes, repository changes, external messages, or other side effects; those
+still require authority from the user's request.
+
 ## Core rules
 
 - Remove filler, pleasantries, repetition, and unnecessary hedging.

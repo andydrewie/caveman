@@ -252,6 +252,10 @@ def validate_skill_layout() -> None:
     description = frontmatter_value(skill_path, "description")
     if not description.startswith("Explicit invocation only."):
         fail(f"{display(skill_path)} must retain the explicit-only activation contract")
+    if "Activating Caveman changes response style only" not in skill_path.read_text(
+        encoding="utf-8"
+    ):
+        fail(f"{display(skill_path)} must retain the side-effect authority boundary")
     agents_path = skill_root / "agents" / "openai.yaml"
     if not agents_path.is_file():
         fail(f"{display(agents_path)} is required")
