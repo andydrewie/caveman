@@ -6,6 +6,16 @@
   <strong>why use many token when few do trick</strong>
 </p>
 
+> [!IMPORTANT]
+> **Reviewed Codex adapter.** The `agent/codex-compatible-v1` branch packages only the safe `caveman` response-style skill under `agent-plugins/caveman`. It activates only when you explicitly invoke `$caveman`, keeps required Codex progress and safety communication visible, and does not include the broader plugin suite. Install the reviewed package through the pinned Codex Skills marketplace:
+>
+> ```bash
+> codex plugin marketplace add andydrewie/codex-skills
+> codex plugin add caveman@andydrewie-codex-skills
+> ```
+>
+> The universal installer and automatic-activation claims below describe the broader upstream project; they do not override this Codex adapter's explicit-only policy.
+
 <p align="center">
   Make your AI coding agent talk like a caveman.<br>
   Same answers. <strong>65% fewer output tokens</strong> on prose,<br>
