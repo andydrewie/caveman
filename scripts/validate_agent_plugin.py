@@ -164,6 +164,8 @@ def validate_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
         fail(f"interface is missing required fields: {sorted(missing_interface)}")
     for field in REQUIRED_INTERFACE_FIELDS - {"capabilities", "defaultPrompt"}:
         require_nonempty_string(interface[field], f"interface.{field}")
+    if interface["developerName"] != author["name"]:
+        fail("interface.developerName must exactly match author.name")
     capabilities = interface["capabilities"]
     if not isinstance(capabilities, list) or not capabilities or any(
         not isinstance(item, str) or not item.strip() for item in capabilities
