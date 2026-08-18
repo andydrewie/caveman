@@ -252,10 +252,28 @@ def validate_skill_layout() -> None:
     description = frontmatter_value(skill_path, "description")
     if not description.startswith("Explicit invocation only."):
         fail(f"{display(skill_path)} must retain the explicit-only activation contract")
-    if "Activating Caveman changes response style only" not in skill_path.read_text(
-        encoding="utf-8"
-    ):
+    skill_text = skill_path.read_text(encoding="utf-8")
+    if "Activating Caveman changes response style only" not in skill_text:
         fail(f"{display(skill_path)} must retain the side-effect authority boundary")
+    if "Never add words or break correct grammar merely to sound caveman." not in skill_text:
+        fail(f"{display(skill_path)} must require compression rather than performative expansion")
+    if "follow that request outside Caveman mode" not in skill_text:
+        fail(f"{display(skill_path)} must preserve explicit user override authority")
+    if "defect, ticket, or bug-report text" not in skill_text:
+        fail(f"{display(skill_path)} must keep all durable issue artifacts in normal prose")
+    if "no reviewed aggregate output-reduction figure" not in skill_text or "65%" in skill_text:
+        fail(f"{display(skill_path)} must not restore the withdrawn aggregate savings claim")
+    if "This is an unofficial Codex adaptation" not in skill_text:
+        fail(f"{display(skill_path)} must retain the unofficial-adapter disclosure")
+    trademark_notice = skill_root / "TRADEMARK_NOTICE.md"
+    if not trademark_notice.is_file():
+        fail(f"{display(trademark_notice)} is required")
+    notice_text = trademark_notice.read_text(encoding="utf-8")
+    if "not endorsed by, affiliated" not in notice_text or "logos are not distributed" not in notice_text:
+        fail(f"{display(trademark_notice)} must retain the trademark and no-endorsement notice")
+    assets_root = skill_root / "assets"
+    if assets_root.exists() and any(assets_root.rglob("*")):
+        fail(f"{display(assets_root)} must remain empty; upstream logos are not licensed for adapter branding")
     agents_path = skill_root / "agents" / "openai.yaml"
     if not agents_path.is_file():
         fail(f"{display(agents_path)} is required")
@@ -277,6 +295,29 @@ def validate_license() -> None:
     repo_license = REPO_ROOT / "LICENSE"
     if not repo_license.is_file() or package_license.read_bytes() != repo_license.read_bytes():
         fail(f"{display(package_license)} must be byte-for-byte identical to the repository LICENSE")
+
+
+def validate_provenance() -> None:
+    provenance = load_object(PLUGIN_ROOT / "PROVENANCE.json")
+    expected = {
+        "schema_version": 1,
+        "package": "caveman",
+        "relationship": "reviewed_codex_adapter",
+        "adapter_maintainer": "Andrew Fai",
+        "upstream": {
+            "repository": "https://github.com/JuliusBrussee/caveman",
+            "reviewed_commit": "766dce6b1394ebb56a3090748d5a0240a5aefb36",
+            "source_path": "plugins/caveman/skills/caveman",
+            "source_license": "MIT",
+        },
+        "scope": {
+            "included": "Response-style skill instructions and Codex interface metadata only.",
+            "excluded": "All Caveman Engine, proxy, cache, rewriter, browser, MCP, telemetry, cloud, binary, and other BSL-1.1 runtime surfaces.",
+        },
+        "review_policy": "Upstream changes are reviewed selectively and never merged into this adapter automatically.",
+    }
+    if provenance != expected:
+        fail(f"{display(PLUGIN_ROOT / 'PROVENANCE.json')} must retain the reviewed MIT-only source boundary")
 
 
 def validate_no_symlinks(root: Path) -> None:
@@ -369,6 +410,7 @@ def main() -> int:
         validate_no_symlinks(PLUGIN_ROOT)
         validate_skill_layout()
         validate_license()
+        validate_provenance()
         validate_rollback_parity()
         validate_reviewed_upstream_assumptions()
         validate_no_mcp()

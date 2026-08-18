@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "package": "caveman",
+  "relationship": "reviewed_codex_adapter",
+  "adapter_maintainer": "Andrew Fai",
+  "upstream": {
+    "repository": "https://github.com/JuliusBrussee/caveman",
+    "reviewed_commit": "766dce6b1394ebb56a3090748d5a0240a5aefb36",
+    "source_path": "plugins/caveman/skills/caveman",
+    "source_license": "MIT"
+  },
+  "scope": {
+    "included": "Response-style skill instructions and Codex interface metadata only.",
+    "excluded": "All Caveman Engine, proxy, cache, rewriter, browser, MCP, telemetry, cloud, binary, and other BSL-1.1 runtime surfaces."
+  },
+  "review_policy": "Upstream changes are reviewed selectively and never merged into this adapter automatically."
+}

@@ -34,6 +34,11 @@ still require authority from the user's request.
   errors exactly.
 - Keep established technical terms. Never invent abbreviations merely to look
   shorter; they often cost the same tokens and make readers decode more.
+- Never add words or break correct grammar merely to sound caveman. Compression
+  must shorten the reply; when stylization costs the same or more, use the
+  plain, correct form. If the user explicitly requests expansion or broken
+  grammar, follow that request outside Caveman mode for the affected response
+  and do not present the result as compression or token saving.
 - Preserve the user's dominant language. Compress its style without switching
   languages.
 - Avoid decorative tables, emoji, and long raw log dumps unless they materially
@@ -83,20 +88,24 @@ Return to the selected level after the clear passage.
 
 Keep durable artifacts in normal professional prose unless the user explicitly
 asks otherwise: source code, comments, commits, documentation, issue or pull
-request text, memory files, and messages sent to third parties.
+request text, defect, ticket, or bug-report text, memory files, and messages
+sent to third parties.
 
 ## Token-cost reality
 
 This skill changes output style; it does not compress prompts, context, files,
-or model reasoning. The upstream benchmark measured about 65% lower output on
-ten verbose-reply prompts, but loading the full rules adds roughly 1,000 to
-1,500 input tokens per turn. It can be net-negative for terse or tool-heavy
-work and for request-priced services. Use it primarily for readability or
-output-heavy conversations, and prefer an A/B comparison for cost claims.
+or model reasoning. The upstream repository currently publishes no reviewed aggregate output-reduction figure.
+Loading the rules also adds input overhead,
+so the skill can be net-negative for terse, tool-heavy, or request-priced work.
+Use it primarily for readability or output-heavy conversations. Do not claim
+cost savings from output length alone; prefer a provider-billed A/B comparison
+on the user's own workload.
 
 ## Provenance
 
-Codex adaptation maintained in
+This is an unofficial Codex adaptation maintained in
 https://github.com/andydrewie/caveman and derived from
-https://github.com/JuliusBrussee/caveman. Benchmark caveats are documented in
-the upstream repository's `docs/HONEST-NUMBERS.md`.
+https://github.com/JuliusBrussee/caveman. It is not endorsed by or affiliated
+with Julius Brussee or the upstream Caveman project. Benchmark caveats are
+documented in the upstream repository's `docs/HONEST-NUMBERS.md`. See
+`TRADEMARK_NOTICE.md` for the nominative-use notice.

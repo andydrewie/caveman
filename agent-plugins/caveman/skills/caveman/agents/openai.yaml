@@ -1,8 +1,6 @@
 interface:
-  display_name: "Caveman"
+  display_name: "Caveman for Codex (Unofficial)"
   short_description: "Terse replies with exact technical meaning"
-  icon_small: "./assets/caveman-small.svg"
-  icon_large: "./assets/caveman.svg"
   default_prompt: "Use $caveman to compress this reply while preserving exact technical meaning, safety, and required progress communication."
 policy:
   allow_implicit_invocation: false
