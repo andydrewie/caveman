@@ -7,7 +7,7 @@
 </p>
 
 > [!IMPORTANT]
-> **Reviewed Codex adapter.** The `agent/codex-compatible-v1` branch packages only the safe `caveman` response-style skill under `agent-plugins/caveman`. It activates only when you explicitly invoke `$caveman`, keeps required Codex progress and safety communication visible, and does not include the broader plugin suite. Install the reviewed package through the pinned Codex Skills marketplace:
+> **Reviewed, unofficial Codex adapter.** The `agent/codex-compatible-v1` branch packages only the safe `caveman` response-style skill under `agent-plugins/caveman`. It activates only when you explicitly invoke `$caveman`, keeps required Codex progress and safety communication visible, and does not include the broader plugin suite. This adapter is not endorsed by or affiliated with Julius Brussee or the Caveman project. Its package excludes the Caveman logos and uses the name only to identify the upstream project. Install the reviewed package through the pinned Codex Skills marketplace:
 >
 > ```bash
 > codex plugin marketplace add andydrewie/codex-skills
@@ -15,6 +15,8 @@
 > ```
 >
 > The universal installer and automatic-activation claims below describe the broader upstream project; they do not override this Codex adapter's explicit-only policy.
+>
+> **Evidence correction:** the historical upstream snapshot below still displays aggregate token-reduction claims that the current upstream honesty review no longer treats as supported by committed, reviewed raw results. The Codex adapter makes no aggregate savings claim; measure provider-billed totals on your own workload.
 
 <p align="center">
   Make your AI coding agent talk like a caveman.<br>
