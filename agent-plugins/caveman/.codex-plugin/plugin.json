@@ -1,6 +1,6 @@
 {
   "name": "caveman",
-  "version": "0.1.0-codex.2",
+  "version": "0.1.0-codex.3",
   "description": "Unofficial, explicit-use Codex adaptation for terse replies that preserve exact technical meaning, safety, and required progress communication.",
   "author": {
     "name": "Andrew Fai (Codex adapter)",
@@ -21,7 +21,7 @@
     "displayName": "Caveman for Codex (Unofficial)",
     "shortDescription": "Terse replies with exact technical meaning",
     "longDescription": "Unofficial Codex adaptation of Julius Brussee's Caveman skill. It compresses replies while preserving technical accuracy, safety, approvals, and required progress communication.",
-    "developerName": "Andrew Fai (adapter)",
+    "developerName": "Andrew Fai (Codex adapter)",
     "category": "Productivity",
     "capabilities": [
       "Write"
